@@ -78,6 +78,7 @@ const EnquiryFormCard = () => {
             id=""
             className="w-full p-3 md:p-4 rounded opacity-50"
           >
+            <option value="" disabled selected hidden>Select Role</option>
             <option value="Distributorship">Distributorship</option>
             <option value="Investor">Investor</option>
             <option value="Marketing">Marketing </option>

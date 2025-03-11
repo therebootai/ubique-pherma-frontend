@@ -171,7 +171,7 @@ const ContactUsSection = () => {
                 }
                 className="w-full p-3 md:p-4 rounded opacity-50"
               >
-                <option value="Select Enquiry" disabled selected hidden>
+                <option value="" disabled selected hidden>
                   Select Enquiry
                 </option>
                 <option value="Distributorship">Distributorship</option>

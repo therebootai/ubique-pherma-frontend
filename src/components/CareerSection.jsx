@@ -121,7 +121,7 @@ const CareerSection = () => {
                     id=""
                     className="w-full md:w-1/2 p-3 md:p-4 rounded"
                   >
-                    <option value="Select Role" disabled>
+                    <option value="" disabled selected hidden>
                       Select Role
                     </option>
                     <option value="MR">MR</option>
