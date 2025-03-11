@@ -41,7 +41,7 @@ export default function Home({ products }) {
   );
 }
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const products = await (
     await fetch("https://ubiquephermabackend.vercel.app/api/products/get")
   ).json();

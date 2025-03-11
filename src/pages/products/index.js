@@ -32,10 +32,10 @@ const Products = ({products}) => {
   );
 }
 
-export const getServerSideProps = async () => {
-  const products = await (await fetch(
-    "https://ubiquephermabackend.vercel.app/api/products/get"
-  )).json();
+export const getStaticProps = async () => {
+  const products = await (
+    await fetch("https://ubiquephermabackend.vercel.app/api/products/get")
+  ).json();
   return {
     props: {
       products,
