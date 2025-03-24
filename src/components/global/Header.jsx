@@ -30,7 +30,10 @@ const Header = () => {
       name: "Mfg. Facility",
       path: "/",
       dropdown: [
-        { name: "Customer", path: "/mfg-facility/customer" },
+        {
+          name: "Manufacturing Service",
+          path: "/mfg-facility/manufacturing-service",
+        },
         {
           name: "Product Approval List",
           path: "/mfg-facility/product-approval",
@@ -40,7 +43,17 @@ const Header = () => {
     },
     { name: "Career", path: "/career" },
     { name: "Investor", path: "/investor" },
-    { name: "Marketing", path: "/marketing" },
+    {
+      name: "Gallery",
+      path: "/gallery",
+      dropdown: [
+        { name: "Visual Ads", path: "/gallery/ads" },
+        {
+          name: "Events",
+          path: "/gallery/events",
+        },
+      ],
+    },
     { name: "Contact Us", path: "/contact" },
   ];
 
@@ -104,7 +117,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex lg:gap-5 lg:items-center font-semibold lg:text-sm text-base relative">
+        <div className="hidden lg:flex lg:gap-5 lg:items-center font-semibold lg:text-sm text-base relative uppercase">
           {menuItems.map((item, index) => (
             <div
               key={index}
@@ -113,7 +126,7 @@ const Header = () => {
             >
               <Link
                 href={item.path}
-                className="px-3 hover:text-blue-500 cursor-pointer"
+                className="px-2 hover:text-blue-500 cursor-pointer"
               >
                 {item.name}
               </Link>

@@ -9,7 +9,7 @@ const Banner = () => {
     "/about": "About Us",
     "/career": "Career",
     "/investor": "Investor",
-    "/marketing": "Marketing",
+    "/gallery": "Gallery",
     "/products": "Our Products",
   };
 
@@ -17,7 +17,12 @@ const Banner = () => {
   const mfgTitles = {
     "track-order": "Track Your Order",
     "product-approval": "Product Approval List",
-    customer: "Customer",
+    "manufacturing-service": "Manufacturing Service",
+  };
+
+  const galleryTitles = {
+    "visual-ads": "Visual Ads",
+    "events": "Events",
   };
 
   let title = pageData[router.pathname] || "Page";
@@ -26,6 +31,12 @@ const Banner = () => {
     const facility = router.query.facility; 
     title = mfgTitles[facility] || "Mfg. Facility";
   }
+
+    if (router.pathname.startsWith("/gallery/[id]")) {
+      const id = router.query.id;
+      title = galleryTitles[id] || "Gallery";
+    }
+
 
   if (router.pathname.startsWith("/products/")) {
     title = "Our Products";

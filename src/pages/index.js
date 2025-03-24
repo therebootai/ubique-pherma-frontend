@@ -7,7 +7,7 @@ import EnquiryFormSection from "@/components/home/EnquiryFormSection";
 import ProductCategorySection from "../components/home/ProductCategorySection";
 import HomeSlider from "../components/home/HomeSlider";
 
-export default function Home({ products }) {
+export default function Home() {
   return (
     <>
       <Head>
@@ -32,23 +32,11 @@ export default function Home({ products }) {
       </Head>
       <MainTemplate>
         <HomeSlider />
-        <ProductCategorySection products={products} />
+        <ProductCategorySection />
         <AboutSection />
-        <ProductSection products={products} />
+        <ProductSection />
         <EnquiryFormSection />
       </MainTemplate>
     </>
   );
 }
-
-export const getStaticProps = async () => {
-  const products = await (
-    await fetch("https://ubiquephermabackend.vercel.app/api/products/get")
-  ).json();
-  const limitedProducts = products.data.slice(0, 8);
-  return {
-    props: {
-      products: limitedProducts, // limit 8
-    },
-  };
-};

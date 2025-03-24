@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const TradeFormCard = ({ closeModal }) => {
+const TradeFormCard = ({ closeModal, productName }) => {
   const [formData, setFormData] = useState({
     name: "",
     mobile: "",
-    product: "",
+    product: productName,
     quantity: "",
-    location: "",
+    email: "",
     message: "",
   });
 
@@ -26,7 +26,7 @@ const TradeFormCard = ({ closeModal }) => {
       !formData.mobile ||
       !formData.product ||
       !formData.quantity ||
-      !formData.location ||
+      !formData.email ||
       !formData.message
     ) {
       alert("Please fill all the fields");
@@ -43,7 +43,7 @@ const TradeFormCard = ({ closeModal }) => {
 *Phone:* ${formData.mobile}
 *Product:* ${formData.product}
 *Quantity:* ${formData.quantity}
-*Location:* ${formData.location}
+*email:* ${formData.email}
 *Message:* ${formData.message}`;
 
     const isMobile = /iPhone|Android|iPad|iPod/i.test(navigator.userAgent);
@@ -95,6 +95,7 @@ const TradeFormCard = ({ closeModal }) => {
               type="number"
               placeholder="Mobile No."
               name="mobile"
+              required
               value={formData.mobile}
               onChange={handleChange} 
               className="w-1/2 p-3 rounded border opacity-70"
@@ -113,16 +114,17 @@ const TradeFormCard = ({ closeModal }) => {
               type="number"
               placeholder="Quantity"
               name="quantity"
+              required
               value={formData.quantity}
               onChange={handleChange} 
               className="w-1/2 p-3 rounded border opacity-70"
             />
           </div>
           <input
-            type="text"
-            placeholder="Location"
-            name="location"
-            value={formData.location}
+            type="email"
+            placeholder="Email"
+            name="email"
+            value={formData.email}
             onChange={handleChange} 
             className="w-full p-3 rounded border opacity-70"
           />

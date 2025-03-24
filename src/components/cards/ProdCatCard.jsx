@@ -1,21 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
-import { useProduct } from "@/store/ProductStore";
 
 const ProdCatCard = ({ product, toggleBookingModal }) => {
   const router = useRouter();
-  const { setSelectedProduct } = useProduct();
 
-  const handleViewMore = () => {
-    setSelectedProduct(product);
-    router.push(`/products/${product._id}`);
-  };
+ const handleViewMore = () => {
+   sessionStorage.setItem("selectedProduct", JSON.stringify(product));
+   router.push(`/products/${product.id}`);
+ };
+
 
   return (
     <div className="flex flex-col gap-2 items-center justify-center w-full">
       <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full relative group overflow-hidden border border-gray-300 flex justify-center items-center">
         <Image
-          src={product.productImage.secure_url}
+          src={product.img}
           alt="prod-cat"
           width={500}
           height={500}
@@ -35,11 +35,11 @@ const ProdCatCard = ({ product, toggleBookingModal }) => {
             className="bg-defined-orange text-white px-3 py-1 rounded-full text-sm"
             onClick={handleViewMore}
           >
-            View More
+           View More
           </button>
         </div>
       </div>
-      <h1 className="text-defined-brown text-xl mt-2">{product.brandName}</h1>
+      <h1 className="text-defined-brown mt-2">{product.name}</h1>
     </div>
   );
 };

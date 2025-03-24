@@ -15,6 +15,15 @@ const TrackOrderSection = () => {
       icon: "/mfg/indpost.jpg",
       link: "https://www.indiapost.gov.in/_layouts/15/dop.portal.tracking/trackconsignment.aspx",
     },
+    { icon: "/mfg/tci.png", link: "https://tcil.com/" },
+    {
+      icon: "/mfg/vrl.png",
+      link: "https://vrlgroup.in/track_consignment.aspx",
+    },
+    {
+      icon: "/mfg/carcel.jpg",
+      link: "https://www.crunchbase.com/organization/carcel",
+    },
   ];
 
   return (

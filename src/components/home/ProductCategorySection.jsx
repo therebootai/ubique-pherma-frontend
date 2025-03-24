@@ -2,15 +2,16 @@ import dynamic from "next/dynamic";
 import { useState, useRef, useCallback, useEffect } from "react";
 import ProdCatCard from "../cards/ProdCatCard";
 import TradeFormCard from "../cards/TradeFormCard";
+import { useProduct } from "@/store/ProductStore";
 
 const Slider = dynamic(() => import("react-slick"), {
   ssr: false,
 });
 
-const ProductCategorySection = ({ products }) => {
+const ProductCategorySection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
-
+  const { products } = useProduct();
   const toggleBookingModal = () => {
     setIsModalOpen(true);
   };
@@ -61,7 +62,7 @@ const ProductCategorySection = ({ products }) => {
           <div className="w-full">
             <Slider {...settings}>
               {products?.map((product) => (
-                <div key={product._id} className="px-2">
+                <div key={product.id} className="px-2">
                   <ProdCatCard
                     product={product}
                     toggleBookingModal={toggleBookingModal}

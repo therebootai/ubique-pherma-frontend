@@ -1,12 +1,14 @@
 import { useState } from "react";
 import ProductSearch from "../ProductSearch";
 import OurProductCard from "../cards/OurProductCard";
+import { useProduct } from "@/store/ProductStore";
 
-const ProductSection = ({ products }) => {
+const ProductSection = () => {
+  const {products} = useProduct();
   const [search, setSearch] = useState("");
   console.log(products);
   
-const filteredProducts = products.filter((product) => product.brandName.toLowerCase().includes(search.toLowerCase()));
+const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()));
     console.log(filteredProducts);
     
   return (
@@ -27,7 +29,7 @@ const filteredProducts = products.filter((product) => product.brandName.toLowerC
           <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xlg:grid-cols-4 gap-4 p-8">
             {filteredProducts?.map((product) => {
               return (
-                <OurProductCard key={product.productId} product={product} />
+                <OurProductCard key={product.id} product={product} />
               );
             })}
           </div>

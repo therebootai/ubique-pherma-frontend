@@ -1,7 +1,9 @@
 import { useState } from "react";
 import ProductPageCard from "@/components/cards/ProductPageCard";
+import { useProduct } from "@/store/ProductStore";
 
-const ProductPageSection = ({ products }) => {
+const ProductPageSection = () => {
+  const {products} = useProduct();
   const [expand, setExpand] = useState({
     tablet: true,
     capsule: true,
@@ -18,20 +20,20 @@ const ProductPageSection = ({ products }) => {
   const categories = [
     {
       name: "tablet",
-      filtered: products.data.filter((product) =>
-        product.categoryName.toLowerCase().includes("tablet")
+      filtered: products.filter((product) =>
+        product.category.toLowerCase().includes("tablet")
       ),
     },
     {
       name: "capsule",
-      filtered: products.data.filter((product) =>
-        product.categoryName.toLowerCase().includes("capsule")
+      filtered: products.filter((product) =>
+        product.category.toLowerCase().includes("capsule")
       ),
     },
     {
       name: "syrup",
-      filtered: products.data.filter((product) =>
-        product.categoryName.toLowerCase().includes("syrup")
+      filtered: products.filter((product) =>
+        product.category.toLowerCase().includes("syrup")
       ),
     },
   ];
@@ -64,7 +66,7 @@ const ProductPageSection = ({ products }) => {
             >
               <div className="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xlg:grid-cols-4 gap-8 p-4">
                 {category.filtered.map((product) => (
-                  <ProductPageCard key={product.productId} product={product} />
+                  <ProductPageCard key={product.id} product={product} />
                 ))}
               </div>
             </div>
