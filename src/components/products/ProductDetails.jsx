@@ -5,10 +5,7 @@ const ProductDetails = () => {
    const product =
      typeof window !== "undefined"
        ? JSON.parse(sessionStorage.getItem("selectedProduct"))
-       : null;
-
-       console.log(product);
-       
+       : null;    
   
    const [isModalOpen, setIsModalOpen] = useState(false);
     const modalRef = useRef(null);
@@ -80,16 +77,16 @@ const ProductDetails = () => {
   const content = [
     { desc: "Manufacturer, Supplier, Retailer", title: "Business Type" },
     {
-      desc: product.category,
+      desc: product?.category,
       title: "Type",
     },
     { desc: "Wet Cough", title: "Application" },
-    { desc: product.packageSize, title: "Bottle Size" },
+    { desc: product?.packageSize, title: "Packaging Size" },
   ];
   return (
     <section>
       <div className="flex flex-col gap-6 w-full">
-        <div className="flex flex-col md:flex-row gap-4 justify-center items-center w-full">
+        <div className="flex flex-col md:flex-row gap-4 justify-center items-center w-full md:mx-8">
           {/* Left */}
           <div className="w-full md:w-[40%]">
             <Image
@@ -137,6 +134,21 @@ const ProductDetails = () => {
               </div>
             </div>
 
+            <div className="flex text-lg">
+              <p className="w-1/2">Medicine Type</p>
+              <p>Expiry</p>
+            </div>
+
+            <div className="flex flex-col text-lg">
+              <div className="flex flex-col gap-2">
+                <p className="text-[#00A86A]">Preferred Buyer From</p>
+              </div>
+              <div className="flex">
+                <p className="w-1/2">Worldwide</p>
+                <p>Location</p>
+              </div>
+            </div>
+
             <div className="flex gap-2 p-2 text-white">
               <button className="w-1/2 md:w-[25%] bg-defined-green p-2 rounded-md">
                 <a href="tel:+918617501527">Request to Call</a>
@@ -150,28 +162,26 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex p-8 gap-4 flex-col">
+        <div className="w-full flex p-8 gap-4 flex-col md:mx-8">
           <h1 className="text-defined-brown text-2xl font-semibold">
-            Product Details
+            Medicine Details
           </h1>
-          <div className="border w-full h-auto flex flex-col p-4">
-            <h1 className="ext-defined-brown text-2xl font-semibold text-center">
-              Brand Name : {product?.name}
-            </h1>
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xlg:grid-cols-4 gap-8 p-8 text-lg">
-              <p>Category : {product?.category}</p>
-              <p>Product Price : {product?.mrp}</p>
-              <p>Pack Size: {product?.packageSize}</p>
-              <p>PTR: {product?.ptr}</p>
-              <p
-                className={`${
-                  product?.active ? "text-green-600" : "text-red-600"
-                }`}
-              >
-                Status : {product?.active ? "Available" : "Not Available"}
-              </p>
-            </div>
-          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur. Pellentesque dolor aliquam
+            vestibulum adipiscing morbi mi nibh. Nunc cras elementum donec a
+            lectus praesent quis netus. Turpis ullamcorper morbi aliquam tortor
+            sit. Vel vitae ullamcorper non purus nibh. Felis morbi tincidunt
+            quis auctor gravida porttitor. Eget tellus cursus purus eget ante
+            velit mattis amet eros. Aliquam sit ut bibendum purus vulputate
+            cursus adipiscing. Neque diam nulla proin laoreet hac aliquam eget
+            eget viverra. Lacus sed facilisi nisl vulputate convallis tristique
+            ac iaculis. Cursus in eu sem quam mi nulla nascetur. Lorem ipsum
+            dolor sit amet consectetur. Pellentesque dolor aliquam vestibulum
+            adipiscing morbi mi nibh. Nunc cras elementum donec a lectus
+            praesent quis netus. Turpis ullamcorper morbi aliquam tortor sit.
+            Vel vitae ullamcorper non purus nibh. Felis morbi tincidunt quis
+            auctor gravida porttitor.
+          </p>
         </div>
 
         {isModalOpen && (
@@ -180,7 +190,10 @@ const ProductDetails = () => {
               ref={modalRef}
               className="w-full sm:w-[90%] md:w-[50%] max-w-md p-6 rounded-lg relative "
             >
-              <TradeFormCard closeModal={closeModal} productName={product?.name}/>
+              <TradeFormCard
+                closeModal={closeModal}
+                productName={product?.name}
+              />
             </div>
           </div>
         )}

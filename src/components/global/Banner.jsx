@@ -21,7 +21,7 @@ const Banner = () => {
   };
 
   const galleryTitles = {
-    "visual-ads": "Visual Ads",
+    "ads": "Visual Aid",
     "events": "Events",
   };
 

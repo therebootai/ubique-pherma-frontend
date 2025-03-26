@@ -59,7 +59,13 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row gap-6">
             {/* Left Section */}
             <div className="flex flex-col gap-4 w-full lg:w-[45%]">
-              <Image src="/logo-white.png" alt="logo" width={186} height={52} className="h-[4rem]" />
+              <Image
+                src="/logo-white.png"
+                alt="logo"
+                width={186}
+                height={52}
+                className="h-[4rem]"
+              />
               <div className=" text-white">
                 <div className="flex items-center gap-2">
                   <LuPhoneCall />
@@ -73,6 +79,12 @@ const Footer = () => {
                     <span>info@ubiquepharma.com</span>
                   </Link>
                 </div>
+                <div className="flex items-center gap-2">
+                  <MdEmail />
+                  <Link href={"mailto:ceo.ubiquepharma@gmail.com"}>
+                    <span>ceo.ubiquepharma@gmail.com</span>
+                  </Link>
+                </div>
                 <div className="flex gap-2 w-full xl:w-[80%]">
                   <IoLocationSharp className="text-lg" />
                   <span>
@@ -82,7 +94,8 @@ const Footer = () => {
                 <div className="flex gap-2 w-full xl:w-[80%]">
                   <IoLocationSharp className="text-lg" />
                   <span>
-                    RO: Papiva Para. Dabaram-II. <br /> Siliguri-734006. (WB) India
+                    RO: Papiva Para. Dabaram-II. <br /> Siliguri-734006. (WB)
+                    India
                   </span>
                 </div>
               </div>
@@ -126,22 +139,29 @@ const Footer = () => {
               />
 
               <div className="flex gap-4 p-3">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 30 30"
-                  fill="none"
+                <a
+                  href="https://www.facebook.com/share/16J1aeKmHh"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <path
-                    d="M30 15C30 22.4871 24.5145 28.6928 17.3438 29.8178V19.3359H20.8389L21.5039 15H17.3438V12.1863C17.3438 10.9998 17.925 9.84375 19.7883 9.84375H21.6797V6.15234C21.6797 6.15234 19.9629 5.85938 18.3217 5.85938C14.8957 5.85938 12.6562 7.93594 12.6562 11.6953V15H8.84766V19.3359H12.6562V29.8178C5.48555 28.6928 0 22.4871 0 15C0 6.71602 6.71602 0 15 0C23.284 0 30 6.71602 30 15Z"
-                    fill="#1877F2"
-                  />
-                  <path
-                    d="M20.8389 19.3359L21.5039 15H17.3438V12.1863C17.3438 11 17.9249 9.84375 19.7882 9.84375H21.6797V6.15234C21.6797 6.15234 19.9631 5.85938 18.322 5.85938C14.8956 5.85938 12.6562 7.93594 12.6562 11.6953V15H8.84766V19.3359H12.6562V29.8177C13.42 29.9375 14.2027 30 15 30C15.7973 30 16.58 29.9375 17.3438 29.8177V19.3359H20.8389Z"
-                    fill="white"
-                  />
-                </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                  >
+                    <path
+                      d="M30 15C30 22.4871 24.5145 28.6928 17.3438 29.8178V19.3359H20.8389L21.5039 15H17.3438V12.1863C17.3438 10.9998 17.925 9.84375 19.7883 9.84375H21.6797V6.15234C21.6797 6.15234 19.9629 5.85938 18.3217 5.85938C14.8957 5.85938 12.6562 7.93594 12.6562 11.6953V15H8.84766V19.3359H12.6562V29.8178C5.48555 28.6928 0 22.4871 0 15C0 6.71602 6.71602 0 15 0C23.284 0 30 6.71602 30 15Z"
+                      fill="#1877F2"
+                    />
+                    <path
+                      d="M20.8389 19.3359L21.5039 15H17.3438V12.1863C17.3438 11 17.9249 9.84375 19.7882 9.84375H21.6797V6.15234C21.6797 6.15234 19.9631 5.85938 18.322 5.85938C14.8956 5.85938 12.6562 7.93594 12.6562 11.6953V15H8.84766V19.3359H12.6562V29.8177C13.42 29.9375 14.2027 30 15 30C15.7973 30 16.58 29.9375 17.3438 29.8177V19.3359H20.8389Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="30"

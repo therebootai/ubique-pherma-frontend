@@ -20,12 +20,21 @@ const TopHeader = () => {
             <MdEmail size={20} className="text-white" />
             <span>info@ubiquepharma.com</span>
           </Link>
+          <Link
+            href="mailto:ceo.ubiquepharma@gmail.com"
+            className="flex md:gap-2 sm:gap-1 items-center font-semibold md:flex"
+          >
+            <MdEmail size={20} className="text-white" />
+            <span>ceo.ubiquepharma@gmail.com</span>
+          </Link>
           <span className="font-semibold">GSTIN: 19AAFFU0535M1ZV</span>
         </div>
         <div className="flex gap-4 sm:px-4 md:px-6 sm:text-xs lg:text-sm xlg:text-base">
           <div className="flex items-center gap-4">
             <FaGoogle size={20} className="text-white" />
-            <FaFacebook size={20} className="text-white" />
+            <a href={"https://www.facebook.com/share/16J1aeKmHh"} target="_blank">
+              <FaFacebook size={20} className="text-white" />
+            </a>
             <FaXTwitter size={20} className="text-white" />
             <FaLinkedin size={20} className="text-white" />
           </div>

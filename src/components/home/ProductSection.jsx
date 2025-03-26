@@ -6,7 +6,6 @@ import { useProduct } from "@/store/ProductStore";
 const ProductSection = () => {
   const {products} = useProduct();
   const [search, setSearch] = useState("");
-  console.log(products);
   
 const filteredProducts = products.filter((product) => product.name.toLowerCase().includes(search.toLowerCase()));
     console.log(filteredProducts);

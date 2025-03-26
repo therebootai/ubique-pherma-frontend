@@ -60,7 +60,7 @@ const ContactUsSection = () => {
   }, []);
   return (
     <section>
-      <div className="flex flex-col md:flex-row lg:flex-row gap-4 p-4">
+      <div className="flex flex-col md:flex-row lg:flex-row gap-4 p-4 md:m-8">
         <div className="md:w-3/4 w-full flex flex-col gap-4 " ref={leftSideRef}>
           <div className="border border-defined-green rounded-md w-full md:p-8 p-2">
             <div className="flex flex-col gap-4 w-full">

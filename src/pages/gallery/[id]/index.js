@@ -2,12 +2,12 @@ import Head from "next/head";
 import Banner from "@/components/global/Banner";
 import MainTemplate from "@/templates/MainTemplate";
 import { useRouter } from "next/router";
-import GalleryComponent from "../../../components/GalleryComponent";
 
 export default function FacilityPage() {
   const router = useRouter();
   if (
-    router.query.id === "events"
+    router.query.id === "events" ||
+    router.query.id === "ads"
   ) {
     return (
       <>
@@ -65,8 +65,6 @@ export default function FacilityPage() {
         />
       </Head>
       <MainTemplate>
-        <Banner />
-        <GalleryComponent />
       </MainTemplate>
     </>
   );

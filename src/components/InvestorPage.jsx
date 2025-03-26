@@ -40,7 +40,7 @@ const InvestorPage = () => {
   };
   return (
     <section>
-      <div className="p-8">
+      <div className="p-8 m-8">
         <Image
           src={"/images/investor.png"}
           alt="career"
@@ -49,7 +49,7 @@ const InvestorPage = () => {
           className="w-full h-full object-cover"
         />
       </div>
-      <div className="p-8 flex flex-col gap-4">
+      <div className="p-8 flex flex-col gap-4 md:m-8">
         <h1 className="text-defined-brown text-4xl font-semibold">
           Investor Relations
         </h1>

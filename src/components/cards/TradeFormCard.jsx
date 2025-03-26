@@ -38,7 +38,7 @@ const TradeFormCard = ({ closeModal, productName }) => {
       return;
     }
 
-    const dest = "+917439972241";
+    const dest = "+918617501527";
     const message = `*Name:* ${formData.name}
 *Phone:* ${formData.mobile}
 *Product:* ${formData.product}

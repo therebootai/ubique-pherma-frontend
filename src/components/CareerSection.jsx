@@ -44,7 +44,7 @@ const CareerSection = () => {
 
   return (
     <section>
-      <div className="p-8">
+      <div className="p-8 md:m-8">
         <Image
           src={"/career/career.png"}
           alt="career"

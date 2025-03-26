@@ -16,8 +16,9 @@ const MainTemplate = ({ children }) => {
       </div>
 
       {/* WhatsApp Button */}
-      <div className="fixed bottom-14 right-8 z-[1100]"
-      onClick={() => window.open("https://wa.me/917439972241", "_blank")}
+      <div
+        className="fixed bottom-14 right-8 z-[1100]"
+        onClick={() => window.open("https://wa.me/918617501527", "_blank")}
       >
         <div className="group flex items-center">
           <div className="bg-defined-green text-white w-[3rem] h-[3rem] flex items-center rounded-full shadow-lg cursor-pointer overflow-hidden transition-all duration-300 ease-in-out group-hover:w-[10rem]">

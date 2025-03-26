@@ -20,23 +20,28 @@ const AboutUs = () => {
   const points = [
     {
       title: "Quality",
-      desc: "We collaborate with state-of-the-art manufacturing facilities and laboratories to ensure the highest quality standards for our products, prioritizing patient safety above all else. Our dedicated quality personnel oversee every stage of production, safeguarding compliance with drug safety and regulatory standards. Our products adhere to WHO guidelines and certifications, including FSSAI, GMP, FDA, GLP, HACCP, ISO 9001:2015 and ISO 22000:2018 certification, ensuring they meet market demands and industry benchmarks. We also offer the latest DCGIapproved molecules to our customers. We are committed to delivering excellence by continuously listening to our customers, understanding their expectations, and consistently meeting their needs with high-quality products and services.",
+      desc: "Quality is central to every step at Ubique Pharma. We partner with certified manufacturing units and labs to ensure safety, efficacy, and regulatory compliance. Our products adhere to WHO, FDA, GMP, FSSAI, ISO 9001:2015, and ISO 22000:2018 standards. Every formulation is overseen by skilled quality experts. By offering the latest DCGI-approved molecules, we fulfill market demands with confidence, delivering products that meet global standards and exceed customer expectations.",
       color: "defined-blue",
     },
     {
       title: "Innovation",
-      desc: "Science is the foundation of Ubique Pharma. Our field teams maintain strong connections with doctors and patients, fostering innovative ideas and solutions that address market needs while creating synergies across various therapeutic areas.",
-      color: "defined-blue",
+      desc: "At Ubique Pharma, innovation is rooted in science and driven by strong on-ground insights. Our field teams maintain close interactions with doctors and patients, allowing us to identify real-world needs. These insights fuel novel ideas and solutions across therapeutic areas. We aim to bridge clinical requirements with advanced research, promoting synergy and progress. By fostering innovation, we remain committed to advancing healthcare and delivering more effective treatment solutions.",
+      color: "defined-orange",
     },
     {
       title: "Responsibility",
-      desc: "In the near future, we plan to establish the UBIQUE as Welfare Foundation to contribute to the well-being of society. Our goal is to support underprivileged communities while also actively engaging in Corporate Social Responsibility (CSR) initiatives, creating a meaningful and lasting impact in future.",
+      desc: "Ubique Pharma believes in giving back to society through responsible actions. We plan to establish the Ubique Welfare Foundation to uplift underprivileged communities and foster social change. Our commitment extends to active participation in CSR initiatives aimed at improving health, education, and sustainable living. Through ethical practices and compassionate outreach, we strive to create a lasting impact and contribute meaningfully to the well-being of individuals and society at large.",
+      color: "defined-blue",
+    },
+    {
+      title: "Efficiacy",
+      desc: "Efficacy is the foundation of our pharmaceutical solutions at Ubique Pharma. Each product undergoes rigorous research, formulation, and testing to ensure optimal therapeutic results. We comply with global certifications like WHO, GMP, FDA, and ISO standards, guaranteeing reliability and safety. Our scientific team focuses on innovation, new molecules, and advanced delivery systems to improve outcomes. We never compromise on efficacy—our commitment is to deliver treatments that truly make a difference.",
       color: "defined-orange",
     },
   ];
 
   return (
-    <div className="flex flex-col gap-4 p-8">
+    <div className="flex flex-col gap-4 p-8 md:m-8">
       <h1 className="text-defined-brown text-4xl font-semibold">About Us</h1>
       <p>
         Ubique Pharma Pvt. Ltd. is a rapidly growing pharmaceutical company
@@ -83,60 +88,23 @@ const AboutUs = () => {
         Our Key Points:
       </h1>
 
-      <div className="w-full flex flex-col md:flex-row gap-4">
+      <div className="w-full flex flex-col md:flex-row gap-2 border">
         {points.map((item, index) => (
-          <div key={index} className={`flex flex-col w-full md:w-[33%]`}>
+          <div key={index} className="flex flex-col w-full md:w-[33%]">
             <div
-              className={`flex justify-center items-center text-2xl text-white rounded w-full  p-4 bg-${item.color}`}
+              className={`flex justify-center items-center text-2xl text-white rounded w-full p-4 bg-${item.color}`}
             >
               {item.title}
             </div>
-            <p className={`p-2 text-defined-brown hover:bg-${item.color} hover:bg-opacity-50 hover:transition-all hover:duration-500 cursor-pointer`}>
+
+            <p
+              className={`p-3 text-defined-brown bg-${item.color} bg-opacity-30 h-full`}
+            >
               {item.desc}
             </p>
           </div>
         ))}
       </div>
-      <div
-        className={`flex justify-center items-center text-2xl text-white rounded w-full md:w-[20%] p-4 bg-defined-orange`}
-      >
-        Efficiacy
-      </div>
-      <p>
-        At Ubique Pharma, efficacy stands as the cornerstone of our product
-        policy. We are unwavering in our commitment to delivering high-quality
-        pharmaceutical solutions that ensure optimal therapeutic outcomes. Every
-        product we develop undergoes rigorous research, advanced formulation
-        techniques, and stringent quality control measures to uphold the highest
-        efficacy standards. We adhere to internationally recognized
-        certifications, including WHO, GMP, FDA, FSSAI, GLP, HACCP, ISO
-        9001:2015 and ISO 22000:2018 certification, ensuring that each product
-        meets and exceeds regulatory benchmarks. Our commitment to efficacy
-        begins at the research and development stage, where we integrate
-        cutting-edge scientific advancements and the latest DCGI-approved
-        molecules to enhance treatment effectiveness. We believe that efficacy
-        is directly linked to quality and safety. Our dedicated quality
-        assurance team closely monitors every stage of production, from sourcing
-        raw materials to the final product, to guarantee consistency, stability,
-        and superior performance. We work in collaboration with top-tier
-        laboratories and manufacturing units equipped with stateof-the-art
-        technology, ensuring that our products deliver the intended therapeutic
-        benefits without compromise. At the heart of our mission is the
-        well-being of patients. We actively engage with healthcare
-        professionals, researchers, and consumers to continuously improve our
-        formulations based on clinical feedback and emerging medical needs. This
-        patient-centric approach allows us to introduce innovative solutions
-        that enhance treatment outcomes and improve overall health. Commitment
-        to Continuous Innovation to maintain our promise of efficacy, we
-        consistently invest in research, development, and technology to stay
-        ahead of evolving healthcare challenges. Our scientific teams explore
-        new molecules, advanced drug delivery systems, and bioavailability
-        enhancement techniques to provide more effective and targeted treatment
-        options. At Ubique Pharma, Efficacy Is Not Just A Goal—It Is A
-        Responsibility. We never compromise on this fundamental principle,
-        ensuring that every product we offer is backed by science, innovation,
-        and an unwavering dedication to improving lives.
-      </p>
 
       <div className="w-full h-full border flex flex-wrap">
         <div className="w-full md:w-1/2 lg:w-[40%] border">

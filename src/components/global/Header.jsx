@@ -5,14 +5,23 @@ import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoClose } from "react-icons/io5";
 import TradeFormCard from "../cards/TradeFormCard";
+import { useProduct } from "@/store/ProductStore";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const modalRef = useRef(null);
   const [openDropdown, setOpenDropdown] = useState(null);
+    const [openSubmenu, setOpenSubmenu] = useState(null);
   const dropdownRef = useRef(null);
+  const {products} = useProduct();
+  
+  const tablet = products.filter((product) => product.category.toLowerCase().includes("tablet"));
+  const capsule = products.filter((product) => product.category.toLowerCase().includes("capsule"));
+  const syrup = products.filter((product) => product.category.toLowerCase().includes("syrup"));
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -21,9 +30,9 @@ const Header = () => {
       name: "Products",
       path: "/products",
       dropdown: [
-        { name: "Tablet", path: "/products" },
-        { name: "Capsule", path: "/products" },
-        { name: "Syrup", path: "/products" },
+        { name: "Tablet", path: "/products", type: "tablet" },
+        { name: "Capsule", path: "/products", type: "capsule" },
+        { name: "Syrup", path: "/products", type: "syrup" },
       ],
     },
     {
@@ -47,7 +56,7 @@ const Header = () => {
       name: "Gallery",
       path: "/gallery",
       dropdown: [
-        { name: "Visual Ads", path: "/gallery/ads" },
+        { name: "Visual Aid", path: "/gallery/ads" },
         {
           name: "Events",
           path: "/gallery/events",
@@ -56,6 +65,11 @@ const Header = () => {
     },
     { name: "Contact Us", path: "/contact" },
   ];
+
+  const handleProductClick = (product) => {
+    sessionStorage.setItem("selectedProduct", JSON.stringify(product));
+    router.push(`/products/${product.id}`);
+  }
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -84,10 +98,11 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
+ useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setOpenDropdown(null);
+        setOpenSubmenu(null);
       }
     };
 
@@ -140,13 +155,58 @@ const Header = () => {
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
                   {item.dropdown.map((subItem, subIndex) => (
-                    <Link
+                    <div
                       key={subIndex}
-                      href={subItem.path}
-                      className="block px-4 py-2 text-black hover:text-blue-500 hover:bg-gray-100 transition cursor-pointer"
+                      className="relative group"
+                      onMouseEnter={() => setOpenSubmenu(subItem.type)}
                     >
-                      {subItem.name}
-                    </Link>
+                      <Link
+                        href={subItem.path}
+                        className="group flex justify-between px-4 py-2 text-black hover:text-blue-500 hover:bg-gray-100 transition cursor-pointer"
+                      >
+                        <span>{subItem.name}</span>
+                        <span className="opacity-0 group-hover:opacity-100">
+                          {item.name === "Products" && "► "}
+                        </span>
+                      </Link>
+
+                      {/* Submenu for Products */}
+                      {(openSubmenu !== undefined && openSubmenu) ===
+                        subItem.type && (
+                        <div className="absolute left-full top-0 w-64 bg-white shadow-md rounded-md p-3">
+                          {subItem.type === "tablet" &&
+                            tablet.map((product) => (
+                              <p
+                                key={product.id}
+                                onClick={() => handleProductClick(product)}
+                                className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer"
+                              >
+                                {product.name}
+                              </p>
+                            ))}
+                          {subItem.type === "capsule" &&
+                            capsule.map((product) => (
+                              <p
+                                key={product.id}
+                                onClick={() => handleProductClick(product)}
+                                className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer"
+                              >
+                                {product.name}
+                              </p>
+                            ))}
+                          {subItem.type === "syrup" &&
+                            syrup.map((product) => (
+                              <p
+                                key={product.id}
+                                onClick={() => handleProductClick(product)}
+                                className="block px-4 py-2 text-black hover:bg-gray-100 cursor-pointer"
+                              >
+                                {product.name}
+                              </p>
+                            ))}
+                        </div>
+                      )}
+                    </div>
                   ))}
                 </div>
               )}
